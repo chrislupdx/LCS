@@ -17,6 +17,7 @@ function tLCS(Y, X)
        C[i] = new Array(m + 1);
     }
     
+    //zero the entire taable
     for(let i = 0; i < (n + 1); i++) 
     {
         for(let j = 0; j < (m + 1); j++)
@@ -24,7 +25,28 @@ function tLCS(Y, X)
             C[i][j] = 0;
         }
     }
+
     console.log(C);
+
+    //we might need to
+    for(let i = 1; i < m; i++)
+    {
+        for(let j = 1; j < n; j++)
+        {
+            if(X[i] == Y[j]) 
+            {
+                C[i][j] =  C[i -1][j -1] + 1;
+            }
+            else
+            {
+                C[i][j] = Math.max(C[i][j - 1], C[i - 1][j]);
+            }
+        }
+    }
+
+    //console.log(C);
+    result = C[m][n];
+    console.log("res is ", result);
 }
 
 //this is the recursive implementation of LCS
