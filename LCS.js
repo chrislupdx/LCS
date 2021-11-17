@@ -8,16 +8,17 @@ function tLCS(X, Y)
     m = X.length;
     n = Y.length;
     C = makeArr(m, n);
-    for (let i = 0; i < m; i++)
+    //C = new Map();
+
+    for(let i = 0; i < m; i++)
     {
         for (let j = 0; j < n; j++)
         {
             C[i,j] = 0;
         }
     }
-    
-    print(C, m, n);
-
+    //print(C, m, n);
+    //console.log(C);
 
     for (let i = 1; i < m; i++) //for X.length
     {
@@ -39,26 +40,6 @@ function rLCS()
     console.log("rLCS");
 }
 
-//this class managages a 2d array
-//class Table{
-//let Table = function(x, y) 
-//{
-//    constructor(x, y) 
-//    {
-//        //initialize the table inside
-//        for(let i = 0; i < 
-//        this.width =  x;
-//        this.length = y;
-//    }
-//    let table = new Table();
-//    //let table = [];
-//    function method()
-//    {
-//        console.log("boom");
-//    }
-//    return table;
-//}
-
 //this is the interface funciton
 function test()
 {
@@ -67,18 +48,30 @@ function test()
     Y = "bcde";
     tLCS(X, Y);
 }
-
 //produce a 2-d array of the 2 strings x and y
 function makeArr(x, y)
 {
-    result = [];
-    for(var i = 0; i < x + 1; i++) 
+    //result = [];
+    let result = new Array(x);
+    for(let i = 0; i < result.length; i++)
     {
-        result[i] = [y];
+        result[i] = new Array(y);
     }
+    //for(var i = 0; i < x + 1; i++) 
+    //{
+    //    result[i] = new [y];
+    //}a
+    //let arr = new Array(x);
+    //for (var i = 0; i < y; i++)
+    //{
+    //    arr[i] = new Array(y); 
+    //} 
+    console.log("new arrr:");
+    console.log(result);
+
+    //let arr = Array(x).fill().map(() => Array(x));
     return result;
 }
-
 //is this necessasry? lf buildin
 function print(C, m, n)
 {
@@ -86,9 +79,15 @@ function print(C, m, n)
     {
         for (let j = 0; j < n; j++)
         {
-         //   console.log(C[i,j]);
+            console.log(C[i][j]);
+            //let thang = C[i,j]);
+            //process.stdout.write(C[i,j]);
+            //console.log(C[i,j]);
+            //if (j == (n - 1))
+            //{
+            //    console.log('\n');
+            //}
         }
     }
 }
-
 test();
