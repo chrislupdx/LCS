@@ -6,6 +6,7 @@
     - What does a sample run of your algorithm produce? 
 
 ## 
+
 - design test data
     - random generate function
     - hardcoded samples 
