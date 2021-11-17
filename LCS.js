@@ -13,6 +13,7 @@ function tLCS(X, Y)
 
     let C = new Array(m);
     row = C.length;
+
     for(let i = 0; i < C.length; i++)
     {
        C[i] = new Array(n);
@@ -39,19 +40,20 @@ function tLCS(X, Y)
     //print(C, m, n);
     //console.log(C);
 
-    for (let i = 1; i < m; i++) //for X.length
-    {
-        for (let j = 1; j < n; j++) // for Y.length
-        {
-            if(X[i] == Y[j])
-            {
-                C[i,j] = C[i - 1, j - 1] + 1; //increment the match
-            }
-            else
-                C[i, j] = Math.max(C[i, j - 1], C[i - 1, j]);
-        }
-    }
-    console.log(C);
+    //t:q
+    //:qfor (let i = 1; i < m; i++) //for X.length
+    //{
+    //    for (let j = 1; j < n; j++) // for Y.length
+    //    {
+    //        if(X[i] == Y[j])
+    //        {
+    //            C[i,j] = C[i - 1, j - 1] + 1; //increment the match
+    //        }
+    //        else
+    //            C[i, j] = Math.max(C[i, j - 1], C[i - 1, j]);
+    //    }
+    //}
+    //console.log(C);
 }
 
 //this is the recursive implementation of LCS
