@@ -1,6 +1,6 @@
 //This is hopefully two JS implementations of LCS (memoized vs brute force)
 //this is the tabulated implemenation of LCS
-//X[1...m] and Y[1...n] respectively are arrays respressenting strings
+///X[1...m] and Y[1...n] respectively are arrays respressenting strings
 function tLCS(X, Y)
 {
     console.log("tLCS start");
@@ -10,7 +10,22 @@ function tLCS(X, Y)
     //C is a 2 dimensional array of x columns and y rows
     let m = X.length;
     let n = Y.length;
-    let C = makeArr(m, n);
+
+    let C = new Array(m);
+    row = C.length;
+    for(let i = 0; i < C.length; i++)
+    {
+       C[i] = new Array(n);
+    }
+
+    for(let i = 0; i < m; i++) 
+    {
+        for(let j = 0; j < n; j++)
+        {
+            C[i][j] = 0;
+        }
+    }
+
     console.log(C);
     //console.log("new array:", C);
 
