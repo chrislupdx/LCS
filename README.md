@@ -5,8 +5,12 @@
     - How do your implementation results compare to theory?
     - What does a sample run of your algorithm produce? 
 
-## 
+## Next Todo
+-
+-
+-
 
+## Roadmap
 - design test data
     - random generate function
     - hardcoded samples 
@@ -14,3 +18,4 @@
 - implement tabulated version
 - implement recursive version
 - wall clock tests
+- operation count

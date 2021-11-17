@@ -4,19 +4,23 @@
 function tLCS(X, Y)
 {
     console.log("tLCS start");
+    
+    console.log("X is ", X);
+    console.log("Y is ", Y);
     //C is a 2 dimensional array of x columns and y rows
-    m = X.length;
-    n = Y.length;
-    C = makeArr(m, n);
-    //C = new Map();
+    let m = X.length;
+    let n = Y.length;
+    let C = makeArr(m, n);
+    console.log(C);
+    //console.log("new array:", C);
 
-    for(let i = 0; i < m; i++)
-    {
-        for (let j = 0; j < n; j++)
-        {
-            C[i,j] = 0;
-        }
-    }
+    //for(let i = 0; i < m; i++)
+    //{
+    //    for (let j = 0; j < n; j++)
+    //    {
+    //        C[i,j] = 0;
+    //    }
+    //}
     //print(C, m, n);
     //console.log(C);
 
@@ -32,6 +36,7 @@ function tLCS(X, Y)
                 C[i, j] = Math.max(C[i, j - 1], C[i - 1, j]);
         }
     }
+    console.log(C);
 }
 
 //this is the recursive implementation of LCS
@@ -53,23 +58,22 @@ function makeArr(x, y)
 {
     //result = [];
     let result = new Array(x);
+    row = result.length;
     for(let i = 0; i < result.length; i++)
     {
         result[i] = new Array(y);
     }
-    //for(var i = 0; i < x + 1; i++) 
-    //{
-    //    result[i] = new [y];
-    //}a
-    //let arr = new Array(x);
-    //for (var i = 0; i < y; i++)
-    //{
-    //    arr[i] = new Array(y); 
-    //} 
-    console.log("new arrr:");
-    console.log(result);
 
-    //let arr = Array(x).fill().map(() => Array(x));
+    for(let i = 0; i < x; i++) //i think =
+    {
+        for(let j = 0; j < y; j++)
+        {
+            result[i][j] = 0;
+        }
+    }
+    //console.log("start");
+    //console.log(result);
+    //console.log("end");
     return result;
 }
 //is this necessasry? lf buildin
