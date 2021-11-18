@@ -6,9 +6,8 @@
     - What does a sample run of your algorithm produce? 
 
 ## Next Todo
-- debug Tabulated undefined shennagigans
-- 
--
+- get backtrack working
+    - figure out which backtrack print do you want to take
 
 ## Roadmap
 - design test data
