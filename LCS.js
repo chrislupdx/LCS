@@ -1,7 +1,7 @@
 //This is hopefully two JS implementations of LCS (memoized vs brute force)
 //this is the tabulated implemenation of LCS
 ///X[1...m] and Y[1...n] respectively are arrays respressenting strings
-function tLCS(Y, X)
+function tLCS(Y, X) //this is the brute force (non-memoized version)
 {
     console.log("tLCS start");
     console.log("X is ", X);
@@ -26,9 +26,8 @@ function tLCS(Y, X)
             C[i][j] = 0;
         }
     }
-    console.log(C);
-    
-    //this is tough
+
+    //This fills the table iteratively
     for(let i = 1; i <= n; i++) //for length of y
     {
         for(let j = 1; j <= m; j++) //for length of x
@@ -50,6 +49,7 @@ function tLCS(Y, X)
     return C;
 }
 
+//this is the recursive backtrack
 //C[0..m, 0..n], X[1..m], Y[1..n] i = m, j = n
 function backtrack(C, X, Y, i, j)
 {
@@ -58,11 +58,11 @@ function backtrack(C, X, Y, i, j)
         console.log("i is ", i, "j is ", j);
         return;
     }
-    if(X[i - 1] == Y[j - 1]) //?
+    if(X[i - 1] == Y[j - 1]) 
     {
         return backtrack(C, X, Y, i - 1, j - 1) + X[i - 1]; //??
     }
-    if(C[i][j - 1] > C[i - 1][j])
+    if(C[i][j - 1] > C[i - 1][j]) //??
     {
         return backtrack(C, X, Y, i, j - 1);
     }
@@ -72,11 +72,11 @@ function backtrack(C, X, Y, i, j)
 //this is the interface funciton
 function test()
 {
-    X = "mzjawxu";
-    Y = "xmjyauz";
+    X = "agcat";
+    Y = "gac";
     C = tLCS(Y, X); //ehhh?
     console.log(C);
-    //backtrack(C, X, Y, i ,j); //figure out i and j are in the right direciotn
+    backtrack(C, X, Y, X.length, Y.length); //figure out i and j are in the right direciotn
     //console.log('backtrack end');
 }
 
