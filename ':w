@@ -45,6 +45,7 @@ function tLCS(Y, X) //this is the brute force (non-memoized version)
             }
         }
     }
+    console.log("res is ", C[X.length][Y.length]);
     return C;
 }
 
@@ -76,11 +77,11 @@ function test()
     C = tLCS(Y, X); //ehhh?
     console.log(C);
 
-    result = C[Y.length][X.length]; //swapped directions
-    console.log("res is", result);
+    //result = C[X.length][Y.length];
+    //console.log("res is", result); //
 
-    //backtrack(C, X, Y, X.length, Y.length); //figure out i and j are in the right direciotn
-    //console.log('backtrack end');
+    backtrack(C, X, Y, X.length, Y.length); //figure out i and j are in the right direciotn
+    console.log('backtrack end');
 }
 
 //this is the recursive implementation of LCS
