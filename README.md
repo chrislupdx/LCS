@@ -6,8 +6,8 @@
     - What does a sample run of your algorithm produce? 
 
 ## Next Todo
--
--
+- debug Tabulated undefined shennagigans
+- 
 -
 
 ## Roadmap

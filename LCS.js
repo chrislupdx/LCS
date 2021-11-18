@@ -9,14 +9,14 @@ function tLCS(Y, X)
 
     let m = X.length;
     let n = Y.length;
-    let C = new Array(n + 1); //C is a 2 dimensional array of x columns and y rows
-    row = C.length;
-    
+
+    //C is a 2 dimensional array of x columns and y rows
+    let C = new Array(n + 1); 
     for(let i = 0; i < C.length; i++)
     {
-       C[i] = new Array(m + 1);
+        C[i] = new Array(m + 1);
     }
-    
+
     //zero the entire taable
     for(let i = 0; i < (n + 1); i++) 
     {
@@ -25,17 +25,17 @@ function tLCS(Y, X)
             C[i][j] = 0;
         }
     }
-
     console.log(C);
-
-    //we might need to
-    for(let i = 1; i < m; i++)
+    
+    //this is tough
+    for(let i = 1; i <= n; i++)
     {
-        for(let j = 1; j < n; j++)
+        for(let j = 1; j <= m; j++)
         {
+            //console.log("i is", i, " j is ", j);
             if(X[i] == Y[j]) 
             {
-                C[i][j] =  C[i -1][j -1] + 1;
+                C[i][j] =  C[i - 1][j - 1] + 1;
             }
             else
             {
@@ -43,10 +43,40 @@ function tLCS(Y, X)
             }
         }
     }
+    return C;
+}
 
-    //console.log(C);
-    result = C[m][n];
-    console.log("res is ", result);
+//C[0..m, 0..n], X[1..m], Y[1..n] i = m, j = n
+function backtrack(C, X, Y, i, j)
+{
+    if(i == 0 | j == 0)
+    {
+        console.log("i is ", i, "j is ", j);
+        return;
+    }
+    if(X[i - 1] == Y[j - 1]) //?
+    {
+        return backtrack(C, X, Y, i - 1, j - 1) + X[i - 1]; //??
+    }
+    if(C[i][j - 1] > C[i - 1][j])
+    {
+        return backtrack(C, X, Y, i, j - 1);
+    }
+    return backtrack(C, X, Y, i - 1, j);
+}
+
+//this is the interface funciton
+function test()
+{
+    X = "agcat";
+    Y = "gac";
+    C = tLCS(Y, X); //ehhh?
+    console.log(C);
+    //i = X.length;
+    //j = Y.length;
+    //console.log('backtrack start');
+    //backtrack(C, X, Y, i ,j); //ehhhh?
+    //console.log('backtrack end');
 }
 
 //this is the recursive implementation of LCS
@@ -55,14 +85,6 @@ function rLCS()
     console.log("rLCS");
 }
 
-//this is the interface funciton
-function test()
-{
-    //generate new stuff
-    X = "abc";
-    Y = "bcde";
-    tLCS(X, Y);
-}
 //produce a 2-d array of the 2 strings x and y
 function makeArr(x, y)
 {
