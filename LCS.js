@@ -19,7 +19,6 @@ function tLCS(Y, X) //this is the brute force (non-memoized version)
         C[i] = new Array(m + 1);
     }
 
-    //zero the entire taable
     for(let i = 0; i < (n + 1); i++) 
     {
         for(let j = 0; j < (m + 1); j++)
@@ -36,19 +35,17 @@ function tLCS(Y, X) //this is the brute force (non-memoized version)
             //console.log("i is", i, " j is ", j);
             if(Y[i - 1] == X[j - 1])
             {
-                //console.log('congruent X[i]', X[i], ' Y[j]', Y[j]);
+                //console.log('congruent X[i]', X[i], ' Y[j]', Y[j]); //uncomment these to make sense of stuff
                 C[i][j] =  C[i - 1][j - 1] + 1;
             }
             else
             {
-                //console.log('incongruent, X[i]', X[i], ' Y[j] ', Y[j], "where j is", j);
                 C[i][j] = Math.max(C[i][j - 1], C[i - 1][j]);
             }
         }
     }
     return C;
 }
-
 
 //this is the interface funciton
 function test()
