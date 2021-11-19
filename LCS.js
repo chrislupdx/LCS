@@ -4,7 +4,6 @@
 
 function tLCS(Y, X) //this is the brute force (non-memoized version)
 {
-    console.log("tLCS start");
     console.log("X is ", X);
     console.log("Y is ", Y);
 
@@ -53,13 +52,12 @@ function test()
     const args = process.argv.slice(2)
     let X = args[0];
     let Y = args[1];
-    console.log("X is", X," and Y is ", Y);
+    //console.log("X is", X," and Y is ", Y);
     let startTime = performance.now();
     let C = tLCS(Y, X); //this is the brute force iterated version
     let result = C[Y.length][X.length];
     let endTime = performance.now();
     let delta =  endTime - startTime; //outputs in milliseconds i belive
     console.log("answer is ", result, "elapsed time is ", (delta * 0.001), " seconds which is type ");
-    console.log(C);
 }
 test();
