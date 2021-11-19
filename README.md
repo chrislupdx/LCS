@@ -6,8 +6,8 @@
     - What does a sample run of your algorithm produce? 
 
 ## Next Todo
-- get backtrack working
-    - figure out which backtrack print do you want to take
+    - wall clock rtests
+    - command line input would be sweet
 
 ## Roadmap
 - design test data

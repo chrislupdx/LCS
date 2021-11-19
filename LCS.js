@@ -1,6 +1,7 @@
 //This is hopefully two JS implementations of LCS (memoized vs brute force)
 //this is the tabulated implemenation of LCS
 ///X[1...m] and Y[1...n] respectively are arrays respressenting strings
+
 function tLCS(Y, X) //this is the brute force (non-memoized version)
 {
     console.log("tLCS start");
@@ -48,68 +49,26 @@ function tLCS(Y, X) //this is the brute force (non-memoized version)
     return C;
 }
 
-//this is the recursive backtrack
-//C[0..m, 0..n], X[1..m], Y[1..n] i = m, j = n
-function backtrack(C, X, Y, i, j)
-{
-    if(i == 0 | j == 0)
-    {
-        console.log("i is ", i, "j is ", j);
-        return;
-    }
-    if(X[i - 1] == Y[j - 1]) 
-    {
-        return backtrack(C, X, Y, i - 1, j - 1) + X[i - 1]; //??
-    }
-    if(C[i][j - 1] > C[i - 1][j]) //??
-    {
-        return backtrack(C, X, Y, i, j - 1);
-    }
-    return backtrack(C, X, Y, i - 1, j);
-}
-
 //this is the interface funciton
 function test()
 {
-    X = "agcat";
-    Y = "gac";
-    C = tLCS(Y, X); //ehhh?
+    const args = process.argv.slice(2)
+    let X = args[0];
+    let Y = args[1];
+    console.log("X is", X," and Y is ", Y);
+
+    let C = tLCS(Y, X); //ehhh?
     console.log(C);
-
-    result = C[Y.length][X.length]; //swapped directions
-    console.log("res is", result);
-
+//
+//    let result = C[Y.length][X.length]; //swapped directions
+//    console.log("res is", result);
+//
     //backtrack(C, X, Y, X.length, Y.length); //figure out i and j are in the right direciotn
     //console.log('backtrack end');
 }
 
-//this is the recursive implementation of LCS
-function rLCS()
 {
     console.log("rLCS");
 }
 
-//produce a 2-d array of the 2 strings x and y
-function makeArr(x, y)
-{
-    //result = [];
-    let result = new Array(x);
-    row = result.length;
-    for(let i = 0; i < result.length; i++)
-    {
-        result[i] = new Array(y);
-    }
-
-    for(let i = 0; i < x; i++) //i think =
-    {
-        for(let j = 0; j < y; j++)
-        {
-            result[i][j] = 0;
-        }
-    }
-    //console.log("start");
-    //console.log(result);
-    //console.log("end");
-    return result;
-}
 test();
