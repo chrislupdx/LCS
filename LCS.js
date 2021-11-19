@@ -49,6 +49,7 @@ function tLCS(Y, X) //this is the brute force (non-memoized version)
     return C;
 }
 
+
 //this is the interface funciton
 function test()
 {
@@ -56,19 +57,12 @@ function test()
     let X = args[0];
     let Y = args[1];
     console.log("X is", X," and Y is ", Y);
-
-    let C = tLCS(Y, X); //ehhh?
+    let startTime = performance.now();
+    let C = tLCS(Y, X); //this is the brute force iterated version
+    let result = C[Y.length][X.length];
+    let endTime = performance.now();
+    let delta =  endTime - startTime; //outputs in milliseconds i belive
+    console.log("answer is ", result, "elapsed time is ", (delta * 0.001), " seconds which is type ");
     console.log(C);
-//
-//    let result = C[Y.length][X.length]; //swapped directions
-//    console.log("res is", result);
-//
-    //backtrack(C, X, Y, X.length, Y.length); //figure out i and j are in the right direciotn
-    //console.log('backtrack end');
 }
-
-{
-    console.log("rLCS");
-}
-
 test();

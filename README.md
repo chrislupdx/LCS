@@ -7,7 +7,6 @@
 
 ## Next Todo
     - wall clock rtests
-    - command line input would be sweet
 
 ## Roadmap
 - design test data
